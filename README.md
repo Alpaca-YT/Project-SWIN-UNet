@@ -115,7 +115,7 @@ Swin-Unet 的设计巧妙地结合了 Transformer 的全局感受野优势和 U-
 经过训练，基于 Swin Transformer 编码器的 U-Net 模型表现出合理的性能：
 
 * **峰值信噪比 (PSNR)**: 24.07 dB
-* **结构相似性指数 (SSIM)**: 0.58
+* **结构相似性指数 (SSIM)**: 0.63
 
 这些结果显著优于标准的线性插值方法：
 
@@ -134,80 +134,5 @@ Swin-Unet 的设计巧妙地结合了 Transformer 的全局感受野优势和 U-
 * 在更大的、更多样化的医疗影像数据集上进行训练和验证。
 * 将模型部署到实际的 XPCI 采集流程中进行实时验证。
 
----
 
-## 7. 安装与使用 (Installation & Usage)
 
-1.  **克隆仓库 (Clone the repository)**:
-    ```bash
-    git clone [https://github.com/yourusername/XPCI-DL-Interpolation.git](https://github.com/yourusername/XPCI-DL-Interpolation.git)
-    cd XPCI-DL-Interpolation
-    ```
-
-2.  **创建虚拟环境并安装依赖 (Create a virtual environment and install dependencies)**:
-    ```bash
-    conda create -n xpcidl python=3.9
-    conda activate xpcidl
-    pip install -r requirements.txt
-    ```
-    *`requirements.txt` 示例内容:*
-    ```
-    torch>=1.8.0
-    torchvision>=0.9.0
-    timm>=0.4.12
-    numpy>=1.20.0
-    opencv-python>=4.5.0
-    Pillow>=8.0.0
-    scikit-learn>=0.24.0
-    matplotlib>=3.3.0
-    ```
-
-3.  **下载数据集 (Download Dataset)**:
-    * 请从 [Human Organ Atlas (LADAF-202027)](https://example.com/ladfa-dataset-link) 下载数据集，并将其放置在项目根目录下的 `data/LADAF-202027` 路径。
-    * 确保您的 `patches_folder` 变量指向正确的路径。
-
-4.  **训练模型 (Train the model)**:
-    ```bash
-    python train.py
-    ```
-    *(请将 `train.py` 替换为您的实际训练脚本名称)*
-
-5.  **评估模型 (Evaluate the model)**:
-    ```bash
-    python evaluate.py --model_path path/to/your/best_model.pth
-    ```
-    *(请将 `evaluate.py` 替换为您的实际评估脚本名称)*
-
----
-
-## 8. 引用 (Citation)
-
-如果您在研究中使用了本项目，请考虑引用以下相关工作和本仓库：
-
-```bibtex
-@article{chen2018deep,
-  title={Deep learning-based anisotropic brain MR image interpolation},
-  author={Chen, Wu and Wang, Kai and Liu, Yuan and Li, Yiran and Wang, Dong and Zhang, Jianfeng and Wu, Jianhua},
-  journal={Medical Image Analysis},
-  volume={43},
-  pages={107--119},
-  year={2018},
-  publisher={Elsevier}
-}
-
-@article{liu2021swin,
-  title={Swin Transformer: Hierarchical Vision Transformer using Shifted Windows},
-  author={Liu, Ze and Lin, Yutong and Cao, Yue and Hu, Han and Wei, Yixuan and Zhang, Zheng and Lin, Stephen and Guo, Baining},
-  journal={arXiv preprint arXiv:2103.14030},
-  year={2021}
-}
-
-% 请在此处添加您项目的引用信息，例如：
-% @misc{yourprojectname2023,
-%   author = {Your Name/Team Name},
-%   title = {XPCI-DL-Interpolation: Deep Learning for Anisotropic X-ray Phase-Contrast CT Data Interpolation},
-%   year = {2023},
-%   publisher = {GitHub},
-%   journal = {GitHub repository},
-%   howpublished = {\url{[https://github.com/yourusername/XPCI-DL-Interpolation](https://github.com/yourusername/XPCI-DL-Interpolation)}},
-% }
